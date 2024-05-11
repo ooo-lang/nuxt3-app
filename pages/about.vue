@@ -1,12 +1,22 @@
 <script lang="ts" setup>
 const route = useRoute();
+const title = ref('About ページ');
+const description = ref('Aboutページ');
 const enableCustomLayout = () => {
   route.meta.layout = 'custom';
 }
-definePageMeta({
-  layout: false,
-  middleware: 'auth',
-});
+
+useHead({
+  title,
+  meta: [
+    {
+      name: 'description',
+      content: description,
+    }
+  ]
+})
+
+
 </script>
 <template>
   <div>
